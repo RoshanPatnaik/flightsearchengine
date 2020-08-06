@@ -1,6 +1,6 @@
 # FlightSearchEngine
 
-##Overview:
+#Overview:
 The search engine allows the users to search flihts between places with their own search preferences (number of stops,duration of journey, price range) on a particular date.
 
 **Steps to run and use the search engine in your system:**
@@ -13,7 +13,7 @@ The search engine allows the users to search flihts between places with their ow
 * Then if you change the link to "localhost:8080/flights/all" you will get a html page available flights
 * You can click on 'Search for Your Flights' button and then search for the flights according to your own preferences
  
-##Technologies Used:
+#Technologies Used:
 *SpringBoot
 *Java
 *Spring Jpa
