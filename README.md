@@ -7,7 +7,7 @@ The search engine allows the users to search flihts between places with their ow
 * Open any Code editor which has Java and SpringBoot support
 * Create a new Spring Starter Project and add all the files in this repo - "https://github.com/loser968/flightsearchengine" 
 * Create a database with the name "flight_details" in your local MySql server
-* Open application.properties file in the resources and change username and password of the datasource to what you have given for your MySql server 
+* Open application.properties file in the resources and enter the username and password of your MySql Server  
 * Run the project as SpringBootApp and make sure your localhost server is running
 * Open any web browser, type in the link - "localhost:8080/flights/save". This would save all the details of flights available in flight_schedule.txt file into your database 	
 * Then if you change the link to "localhost:8080/flights/all" you will get a html page available flights
