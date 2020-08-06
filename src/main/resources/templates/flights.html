@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="/webjars/bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet" />
+<script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Flights Schedule</title>
+</head>
+<body>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#getFlights">Search for Your Flights</button>
+<H2>All Flights</H2>
+<table class="table table-stripped">
+<thead>
+<tr>
+<td>Id</td>
+<td>Origin</td>
+<td>Origin Code</td>
+<td>Destination</td>
+<td>Destination Code</td>
+<td>Flight Number</td>
+<td>Departure Time</td>
+<td>Arrival Time</td>
+<td>Flight Type</td>
+<td>Via</td>
+<td>Days of Operation</td>
+<td>Duration</td>
+<td>Price</td>
+</tr>
+</thead>
+<tr th:each="flight:${flights}">
+<td th:text="${flight.id}">Id</td>
+<td th:text="${flight.origin}">origin</td>
+<td th:text="${flight.originCode}">originCode</td>
+<td th:text="${flight.destination}">destination</td>
+<td th:text="${flight.destinationCode}">destinationCode</td>
+<td th:text="${flight.flightNumber}">Flight Number</td>
+<td th:text="${flight.departureTime}">Departure Time</td>
+<td th:text="${flight.arrivalTime}">Arrival Time</td>
+<td th:text="${flight.flightType}">Flight Type</td>
+<td th:text="${flight.via}">Via</td>
+<td th:text="${flight.daysOfOperation}">Days Of Operation</td>
+<td th:text="${flight.duration}">Duration</td>
+<td th:text="${flight.price}">Price</td>
+</tr>
+</table>
+
+
+<div class="modal fade" id="getFlights" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form th:action="@{/flights/getFlights}" method="get" autocomplete="on">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Your Preferences</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+      
+          <div class="form-group">
+            <label for="origin" class="col-form-label">Origin</label>
+            <input type="text" class="form-control" id="source" name="origin" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="destination" class="col-form-label">Destination</label>
+            <input type="text" class="form-control" id="destination" name="destination" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="noOfStops" class="col-form-label" >No Of Stops</label>
+            <input type="int" class="form-control" id="noOfStops" name="noOfStops" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="priceRange" class="col-form-label">Price Range
+            <input type="long" class="form-control" id="lowerLimit" name="lowerLimit" placeholder="Lower Limit" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+            <input type="long" class="form-control" id="upperLimit" name="upperLimit" placeholder="Upper Limit" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label for="duration" class="col-form-label">Duration Limit</label>
+            <input type="int" class="form-control" id="duration" name="duration" placeholder="Enter your duration limit in hours" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+          </div>
+          
+          <div class="form-group">
+	          <label for="journeyDate">JourneyDate</label>
+	  		  <input type="date" id="journeyDate" name="journeyDate" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required>
+	  	  </div>	  
+          
+          
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Get Flights</button>
+      </div>
+      
+    
+    </div>
+  </div>
+  </form>
+</div>
+
+<script>
+
+	function InvalidMsg(input){
+		if(input.value==''){
+			input.setCustomValidity ('This is a necessary filed');
+		}
+		else if(input.validity.typeMismatch){
+			input.setCustomValidity('Please give a valid input');
+		}
+		else{
+			input.setCustomValidity('');
+		}
+		
+	}
+
+</script>
+
+
+</body>
+</html>
