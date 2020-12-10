@@ -15,5 +15,5 @@ The search engine allows the users to search flights between places with their o
  
 ## Technologies Used:
 * SpringBoot
-* Java
+* MySQL
 * Html
