@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.cts.flightsearchengine;
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,7 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class FlightSearchEngineApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void test() {
+		assertTrue(true);
 	}
 
 }
